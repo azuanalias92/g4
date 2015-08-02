@@ -128,15 +128,17 @@ $stateProvider.state('index2',
     .controller('HomePageController', [ '$scope', '$state', function($scope, $state) {
        $scope.tasks = [
   {title: 'Penang'},
-  {title: 'Pay bills'},
-  {title: 'Pay bills'},
-  {title: 'Pay bills'},
-  {title: 'Pay bills'},
-  {title: 'Pay bills'},
-  {title: 'Pay bills'},
-  {title: 'Pay bills'},
-  {title: 'Pay bills'}
-
+  {title: 'Kuala Lumpur'},
+  {title: 'Perlis'},
+  {title: 'Kedah'},
+  {title: 'Perak'},
+  {title: 'Malacca'},
+  {title: 'Kelantan'},
+  {title: 'Selangor'},
+  {title: 'Pahang'},
+  {title: 'NegeriSembilan'},
+  {title: 'Sarawak'},
+  {title: 'Terengganu'}
   ]
         $scope.navTitle = 'Menu';
 

@@ -28,6 +28,9 @@
 .card .item1{
   background: red;
 }
+.card .green{
+  background: green;
+}
 .card2
 {
      margin-bottom: 51px !important;
@@ -137,7 +140,8 @@
     <ion-content padding="true">
 
     <ul class='list' ng-repeat="task in tasks">
-    <a class="button button-block button-calm" ng-href="#/sha">  <img ng-src="/img/{{task.title}}.jpg" width="30" />  {{task.title}}</a>
+    <a class="button button-block button-calm icon-left"  ng-href="#/sha">  
+    <img ng-src="/img/{{task.title}}.jpg" width="30" />  {{task.title}}</a>
       
  
       </ion-content>
