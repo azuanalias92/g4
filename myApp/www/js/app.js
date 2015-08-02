@@ -21,26 +21,132 @@ angular.module('starter', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider)
 {
 
-  $urlRouterProvider.otherwise("/home");
+ $stateProvider
+            .state('index', {
+                url : '/index',
+                templateUrl : 'index.html',
+                controller : 'EntryPageController'
+            })
 
-  $stateProvider.state('home',
+            .state('main', {
+                url : '/main',
+                templateUrl : 'mainContainer.html',
+                abstract : true,
+                controller : 'MainController'
+            })
+
+             .state('main.profile', {
+                url: '/profile',
+                views: {
+                    'main': {
+                        templateUrl: 'profile.html',
+                        controller : 'HomePageController'
+                    }
+                }
+            })
+              .state('main.redeem', {
+                url: '/redeem',
+                views: {
+                    'main': {
+                        templateUrl: 'redeem.html',
+                        controller : 'HomePageController'
+                    }
+                }
+            })
+            .state('main.chacomplete', {
+                url: '/chacomplete',
+                views: {
+                    'main': {
+                        templateUrl: 'chacomplete.html',
+                        controller : 'HomePageController'
+                    }
+                }
+            })
+        .state('main.leaderboard', {
+                url: '/leaderboard',
+                views: {
+                    'main': {
+                        templateUrl: 'leaderboard.html',
+                        controller : 'HomePageController'
+                    }
+                }
+            })
+            .state('main.home', {
+                url: '/home',
+                views: {
+                    'main': {
+                        templateUrl: 'home.html',
+                        controller : 'HomePageController'
+                    }
+                }
+            })
+
+          
+
+
+  $urlRouterProvider.otherwise("/index");
+
+
+ 
+
+  
+
+  $stateProvider.state('sha',
   {
-    url:'/home',
-    templateUrl: 'home.html'
+    url:'/sha',
+    templateUrl: 'sha.html'
   })
 
-  $stateProvider.state('index',
+$stateProvider.state('index2',
   {
-    url:'/',
-    templateUrl: 'index.html',
-    controller: 'TasksCtrl'
+    url:'/index2',
+    templateUrl: 'index2.html'
   })
+
+
+
 })
 
-.controller('TasksCtrl', function($scope)
-{
-  $scope.tasks = [
-  {title: 'Cuci baju'},
+
+
+
+ .controller('MainController', [ '$scope', function($scope) {
+        $scope.toggleMenu = function() {
+            $scope.sideMenuController.toggleLeft();
+        }
+    }])
+
+    .controller('EntryPageController', [ '$scope', '$state', function($scope, $state) {
+        $scope.navTitle = 'Entry Page';
+
+        $scope.signIn = function() {
+            $state.go('main.home');
+        }
+    }])
+
+
+    .controller('HomePageController', [ '$scope', '$state', function($scope, $state) {
+       $scope.tasks = [
+  {title: 'Penang'},
+  {title: 'Pay bills'},
+  {title: 'Pay bills'},
+  {title: 'Pay bills'},
+  {title: 'Pay bills'},
+  {title: 'Pay bills'},
+  {title: 'Pay bills'},
+  {title: 'Pay bills'},
   {title: 'Pay bills'}
+
   ]
-})
+        $scope.navTitle = 'Menu';
+
+        $scope.leftButtons = [{
+            type: 'button-icon icon ion-navicon',
+            tap: function(e) {
+                $scope.toggleMenu();
+            }
+        }];
+    }])
+
+
+
